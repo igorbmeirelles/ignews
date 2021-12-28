@@ -4,12 +4,14 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>ignews</title>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap"
             rel="stylesheet"
           />
+          <link rel="shortcut icon" href="favicon.png" type="image/png" />
+
+          <title>ignews</title>
         </Head>
         <body>
           <Main />
