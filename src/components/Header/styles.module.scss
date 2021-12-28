@@ -38,6 +38,7 @@
         color: var(--white);
         font-weight: bold;
       }
+
       &.active::after {
         content: "";
         height: 3px;
@@ -49,5 +50,9 @@
         background: var(--yellow-500);
       }
     }
+  }
+
+  button {
+    margin-left: auto;
   }
 }
