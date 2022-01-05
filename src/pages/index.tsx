@@ -8,7 +8,7 @@ import styles from "./home.module.scss";
 interface HomeProduct {
   product: {
     priceId: string;
-    amount: number;
+    amount: string;
   };
 }
 
