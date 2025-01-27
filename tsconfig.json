@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "types": ["@types/react"],
+    "types": [
+      "@types/react"
+    ],
     "lib": [
       "dom",
       "dom.iterable",
@@ -18,7 +20,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve"
   },
   "include": [
     "next-env.d.ts",
