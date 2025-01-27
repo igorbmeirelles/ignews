@@ -5,6 +5,13 @@ import Prismic from "@prismicio/client";
 import { RichText } from "prismic-dom";
 import styles from "./styles.module.scss";
 import Link from "next/link";
+import ApiSearchResponse from "@prismicio/client/types/ApiSearchResponse";
+
+// Define the structure of the post data
+interface Publication {
+  title: string[];
+  content: { type: string; text: string }[];
+}
 
 type Post = {
   slug: string;
@@ -12,9 +19,11 @@ type Post = {
   excerpt: string;
   updatedAt: string;
 };
+
 interface PostsProps {
   posts: Post[];
 }
+
 export default function Posts({ posts }: PostsProps) {
   return (
     <>
@@ -50,12 +59,14 @@ export const getStaticProps: GetStaticProps = async () => {
   );
 
   const posts = response.results.map((post) => {
+    // Type assertion to specify that post.data is of type Publication
+    const data = post.data as Publication;
+    
     return {
       slug: post.uid,
-      title: RichText.asText(post.data.title),
+      title: RichText.asText(data.title),
       excerpt:
-        post.data.content.find((content) => content.type === "paragraph")
-          ?.text ?? "",
+        data.content.find((content) => content.type === "paragraph")?.text ?? "",
       updatedAt: new Date(post.last_publication_date).toLocaleDateString(
         "pt-BR",
         {
