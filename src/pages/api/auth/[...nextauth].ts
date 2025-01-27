@@ -17,6 +17,9 @@ export default NextAuth({
       },
     }),
   ],
+  jwt: {
+    secret: "teste",
+  },
   callbacks: {
     async session({ session }) {
       try {
